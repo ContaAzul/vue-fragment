@@ -110,14 +110,11 @@ export default {
       parent.removeChild = (node) => {
         if (!!node.__isFragment && !!node.__isMounted) {
           while (node.__head.nextSibling !== node.__tail)
-            node.removeChild(node.__head.nextSibling)// container.removeChild(head.nextSibling)
+            node.removeChild(node.__head.nextSibling)
 
           parent.removeChild(node.__head)
           parent.removeChild(node.__tail)
           unfreeze(container, 'parentNode')
-
-          // parent.insertBefore = insertBefore
-          // parent.removeChild = removeChild
         } else {
           removeChild.call(parent, node)
         }
