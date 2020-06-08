@@ -27,7 +27,8 @@ export default {
     }
   },
 
-  mounted() {
+  async mounted() {
+    await this.$nextTick();
     const container = this.$el;
     const parent = container.parentNode;
 
